@@ -1,0 +1,21 @@
+.ItemArtist {
+  border: 1px solid #d4d4d4;
+  box-shadow: 5px 5px 10px #d4d4d4;
+  border-radius: 5px;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  grid-gap: 5px;
+  min-height: 140px;
+}
+
+.ItemArtist__name {
+  color: #5b5b5b;
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.ItemArtist__country {
+  color: #6b6b6b;
+  font-size: .9em;
+}

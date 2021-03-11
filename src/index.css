@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.ScrollBar {
+  overflow: auto;
+}
+
+.ScrollBar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.ScrollBar::-webkit-scrollbar-thumb {
+  background: #cccccc;
+}
+
+.ScrollBar::-webkit-scrollbar-thumb:hover {
+  background: #acacac 0%;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.ScrollBar::-webkit-scrollbar-thumb:active {
+  background-color: #999999 ;
+}
+.ScrollBar::-webkit-scrollbar-track {
+  background: transparent;
+}
