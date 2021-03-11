@@ -17,24 +17,14 @@ const Home = ({ favs, dispatch }) => {
     addStorage && localStorage.setItem('listFavs', JSON.stringify(favs))
   }, [favs, addStorage])
 
-  const apisMusic = async () => {
-    try {
-      const res = await axios({
-        method: 'get',
-        url: 'https://api.musixmatch.com/ws/1.1/artist.search?apikey=d8c08ac0ab57c7902a409c9816e1d1da',
-        config: {
-          headers: {
-            "Accept": "application/json",
-            "content-length": "103",
-            "content-type": "text/plain; charset=utf-8"
-          }
-        }
+  const apisMusic = () => {
+    axios.get('https://api.musixmatch.com/ws/1.1/artist.search?apikey=e5ea9235643005beed9d3301c16a9022')
+      .then(({data}) => {
+        console.log(data)
+        const { body } = data.message;
+        dispatch({ type: 'ADD_ARTIST_LIST', payload: body.artist_list })
       })
-      console.log(res)
-      //setListView()
-    } catch (error) {
-      console.log(error)
-    }
+      .catch(console.error);
   }
 
   return (

@@ -10,6 +10,8 @@ export default function store(state = INITIAL_STATE, action) {
         ...state,
         favs: consultarAddFavs(state.favs, action.payload),
       }
+    case 'ADD_ARTIST_LIST':
+      return { ...state, artist_list: action.payload }
     default: return state
   }
 }

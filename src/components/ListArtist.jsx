@@ -30,7 +30,8 @@ const ListArtist = ({ artist_list, favs }) => {
           {value ? 'Resultados..' : listFavs ? 'Favoritos' : `Top ${currentList?.length || 0} By Musicxmatch`}
         </h3>
         <div className='ListArtist__list'>
-          {currentList?.length > 0 && currentList.map((item) => <ItemArtist item={item} />)}
+          {currentList?.length > 0 &&
+            currentList.map((item) => <ItemArtist key={item.artist.artist_id} item={item} />)}
         </div>
       </div>
     </>
