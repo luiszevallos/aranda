@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ListArtist from '../components/ListArtist';
 import { connect } from 'react-redux';
+import './styles/Home.css';
+import Message from '../modals/Message';
 
-const Home = ({ favs, dispatch }) => {
+const Home = ({ favs, dispatch, message }) => {
   const [addStorage, setAddStorage] = useState(false)
 
   useEffect(() => {
@@ -28,15 +30,17 @@ const Home = ({ favs, dispatch }) => {
   }
 
   return (
-    <main>
-      <ListArtist />
-    </main>
+    <>
+      <main className='Home'>
+        <ListArtist />
+      </main>
+    </>
   );
 }
 
 
-const mapStateToProps = ({ store: { favs, artist_list } }) => {
-  return { favs, artist_list }
+const mapStateToProps = ({ store: { favs, artist_list, message } }) => {
+  return { favs, artist_list, message }
 }
 
 export default connect(mapStateToProps)(Home);

@@ -3,8 +3,10 @@ import { consultarAddFavs } from '../utils/functionStateLocal';
 
 export default function store(state = INITIAL_STATE, action) {
   switch (action.type) {
+    case 'VIEW_MESSAGE':
+      return { ...state, message: action.payload }
     case 'ADD_FAVS':
-      return {...state, favs: action.payload,}
+      return { ...state, favs: action.payload }
     case 'ADD_FAV':
       return {
         ...state,

@@ -1,32 +1,57 @@
 import React, {useState, useEffect} from 'react';
 import { Button } from '@material-ui/core';
 import './styles/ItemArtist.css';
-import { Star, StarBorder } from '@material-ui/icons';
 import { connect } from 'react-redux';
+import BtnFav from './BtnFav';
+import ModalDetails from '../modals/ModalDetails';
+import Message from '../modals/Message';
 
 const ItemArtist = ({ item, favs, dispatch }) => {
   const [fav, setFav] = useState(false);
+  const [details, setDetails] = useState(false);
+  const [message, setMessage] = useState(false);
   const { artist } = item;
   const { artist_id } = artist;
+
   useEffect(() => {
     const res = favs.find(({artist}) => artist.artist_id === artist_id)
     setFav(res)
   }, [favs, artist_id])
+
+  const messageView = {
+    title: artist.artist_name,
+    description: `${fav ? 'Agregado como' : 'Eliminado de'} favorito`,
+  }
+
+  const handleClickFav = () => {
+    dispatch({type: 'ADD_FAV', payload: item})
+    setMessage(!message)
+  }
+
   return (
-    <div className='ItemArtist'>
-      <span className='ItemArtist__name'>{artist.artist_name}</span>
-      <span className='ItemArtist__country'>{artist.artist_country}</span>
-      <div>
-        <Button
-          onClick={() => dispatch({type: 'ADD_FAV', payload: item})}>
-          {fav
-            ? <Star style={{color: '#3cd372'}} />
-            : <StarBorder style={{color: '#6b6b6b'}}/>
-          }
-        </Button>
-        <Button>+</Button>
+    <>
+      <div className='ItemArtist'>
+        <span className='ItemArtist__name'>{artist.artist_name}</span>
+        <span className='ItemArtist__country'>{artist.artist_country}</span>
+        <div className='ItemArtist__btn'>
+          <BtnFav fav={fav} onClick={handleClickFav} />
+          <Button onClick={() => setDetails(!details)}>+</Button>
+        </div>
       </div>
-    </div>
+      {details &&
+        <ModalDetails
+          item={item}
+          onClickClose={() => setDetails(!details)}
+          onClickFav={handleClickFav}
+        />
+      }
+      {message &&
+        <Message
+          message={messageView}
+          onClickClose={() => setMessage(!message)}
+        />
+      }
+    </>
   );
 }
 

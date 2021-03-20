@@ -1,9 +1,12 @@
 .SearchArtist {
-  margin: 20px auto;
+  margin: 0 auto;
+  padding: 20px 0;
   max-width: 1100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  min-width: 300px;
 }
 
 .SearchArtist__input {

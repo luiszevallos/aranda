@@ -655,6 +655,11 @@ const state = {
     }
   ],
   favs: [],
+  message: {
+    active: false,
+    title: '',
+    description: '',
+  }
 };
 
 export default state;

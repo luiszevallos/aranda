@@ -1,0 +1,5 @@
+.Home {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 72px 1fr;
+}

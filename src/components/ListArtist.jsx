@@ -18,17 +18,17 @@ const ListArtist = ({ artist_list, favs }) => {
         value={value}
       />
       <div className='ListArtist'>
-        <div className='ListArtist__button'>
+        <div className='ListArtist__hero'>
           <div
-            className='ListArtist__button-favs'
+            className='ListArtist__hero-favs'
             onClick={() => setListFavs(!listFavs)}
           >
             {listFavs ? 'Ver lista' : 'Ver favoritos'}
           </div>
+          <h3 className='ListArtist__hero-title'>
+            {value ? 'Resultados..' : listFavs ? 'Favoritos' : `Top ${currentList?.length || 0} By Musicxmatch`}
+          </h3>
         </div>
-        <h3 className='ListArtist__title'>
-          {value ? 'Resultados..' : listFavs ? 'Favoritos' : `Top ${currentList?.length || 0} By Musicxmatch`}
-        </h3>
         <div className='ListArtist__list'>
           {currentList?.length > 0 &&
             currentList.map((item) => <ItemArtist key={item.artist.artist_id} item={item} />)}

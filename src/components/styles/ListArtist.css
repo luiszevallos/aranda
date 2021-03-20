@@ -1,17 +1,20 @@
-.ListArtist__button {
+.ListArtist__hero {
+  width: 100%;
   margin: 0 auto;
   max-width: 1100px;
   display: flex;
+  align-items: center;
 }
 
-.ListArtist__button-favs {
+.ListArtist__hero-favs {
   padding: 0 10px;
   cursor: pointer;
 }
 
-.ListArtist__title {
+.ListArtist__hero-title {
   text-align: center;
   color: #4b4b4b;
+  margin: 0 auto;
 }
 
 .ListArtist__list {
@@ -19,5 +22,7 @@
   grid-gap: 10px;
   margin: 0 auto;
   max-width: 1100px;
+  padding: 10px;
   grid-template-columns: repeat(4, 1fr);
+  overflow: auto;
 }
