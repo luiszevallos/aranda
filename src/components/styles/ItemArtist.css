@@ -10,6 +10,10 @@
   background: #fff;
 }
 
+.ItemArtist:hover {
+  transform: scale(1.03);
+}
+
 .ItemArtist__name {
   color: #5b5b5b;
   font-weight: 400;

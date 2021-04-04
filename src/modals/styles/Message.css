@@ -1,7 +1,7 @@
 .Message {
   position: absolute;
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;
+  right: 10px;
   border-radius: 5px 0 5px 5px;
   background: #DCF8C6;
   padding: 10px 15px;
@@ -34,4 +34,10 @@
   top: 0;
   right: -9px;
   border-left: 10px solid #DCF8C6;
+}
+
+@media screen and (max-width: 600px) {
+  .Message {
+    bottom: 8px;
+  }
 }

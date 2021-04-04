@@ -3,7 +3,6 @@ import axios from 'axios';
 import ListArtist from '../components/ListArtist';
 import { connect } from 'react-redux';
 import './styles/Home.css';
-import Message from '../modals/Message';
 
 const Home = ({ favs, dispatch, message }) => {
   const [addStorage, setAddStorage] = useState(false)
@@ -13,6 +12,7 @@ const Home = ({ favs, dispatch, message }) => {
     favsStorage?.length > 0 && dispatch({ type: 'ADD_FAVS', payload: favsStorage});
     setTimeout(() => setAddStorage(true), 10);
     apisMusic()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {

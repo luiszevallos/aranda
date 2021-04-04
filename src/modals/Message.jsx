@@ -5,6 +5,7 @@ import './styles/Message.css';
 const Message = ({ message, onClickClose }) => {
   useEffect(() => {
     setTimeout(() => onClickClose(), 2000);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return ReactDom.createPortal(
     <div className='Message'>

@@ -28,6 +28,14 @@ const ItemArtist = ({ item, favs, dispatch }) => {
     setMessage(!message)
   }
 
+  const styleBtnMax = {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#6b6b6b',
+    minWidth: 'initial',
+    padding: '1px 10px'
+  }
+
   return (
     <>
       <div className='ItemArtist'>
@@ -35,7 +43,13 @@ const ItemArtist = ({ item, favs, dispatch }) => {
         <span className='ItemArtist__country'>{artist.artist_country}</span>
         <div className='ItemArtist__btn'>
           <BtnFav fav={fav} onClick={handleClickFav} />
-          <Button onClick={() => setDetails(!details)}>+</Button>
+          <Button
+            title='Ver Album'
+            style={styleBtnMax}
+            onClick={() => setDetails(!details)}
+          >
+            +
+          </Button>
         </div>
       </div>
       {details &&
